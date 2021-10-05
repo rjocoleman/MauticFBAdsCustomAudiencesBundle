@@ -1,4 +1,4 @@
-# Facebook Ads (Custom Audiences) - Mautic Plugin
+# Custom Audiences (Facebook Ads) - Mautic Plugin
 
 _(Formerly named 'MauticFBAdsCustomAudiencesBundle')_
 
