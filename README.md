@@ -1,32 +1,19 @@
-# MauticFBAdsCustomAudiencesBundle
-Enables integration with Facebook Ads Custom Audiences Syncing your Mautic segments.
+# Facebook Ads (Custom Audiences) - Mautic Plugin
 
-Development was sponsored by [Trinoco](https://www.trinoco.nl) for the [Qeado](https://www.qeado.com) project.
+_(Formerly named 'MauticFBAdsCustomAudiencesBundle')_
 
-# Installation
-1) Require the FB ads library in the Mautic root directory
+The plugin enables integration with [Facebook Ads](https://www.facebook.com/business/ads) and allow syncing its [Custom Audiences](https://en-gb.facebook.com/business/help/341425252616329?locale=en_GB) with your [Mautic](https://www.mautic.org/) segments.
 
-composer require facebook/php-ads-sdk:2.9.*
+The plugin is originally developed by [Raymond Muilwijk](https://github.com/rmuilwijk) and was sponsored by [Trinoco](https://www.trinoco.nl) for the [Qeado](https://www.qeado.com) project. Without his fantastic work the project couldn't be available. The abandoned project was forked and embraced by [LeadEngine](https://www.leadengine.hu/)/[ReachMedia Ltd.](https://www.reachmedia.hu/) for further structured developments and maintenance. The project keeps its original GPL3 license, therefore the project is freely used and developed. The new maintainer just try to manage the the processes.
 
-The library has been tested on 5.6 to also work so if you get requirements errors try:
+# Usage & Installation
 
-composer require --ignore-platform-reqs facebook/php-ads-sdk:2.9.*
+[All the details available in separated document.](https://docs.google.com/document/d/1xKvPwJnyv8B-dGzerdI8rgnYea2l1tOoLO9Rlw54ABk)
 
-2) Create a new Facebook App:
-https://developers.facebook.com/apps/
+# Credits
 
-3) Add the Marketing API Product.
+- [Raymond Muilwijk](https://github.com/rmuilwijk)
 
-4) Visit the Marketing API -> Tools page in your app and check the scopes and hit Get Token. Store this access_token for later use.
+# License
 
-5) Go into your Facebook Ads account management and get your ad account id. 
-
-6) Visit the Marketing API -> Settings page in your app and add your ad account id.
-
-7) Visit the app Dashboard page and store the app_id and app_key for later use.
-
-8) Enable the plugin and enter your app_id, app_secret, access_token and ad accoun id. . If you have more then 10 segments you might get errors enabling the plugin on install. When your facebook App is in development mode the requrest rates are limited. remove some segments en readd them later.
-
-9) Visis your facebook ads audiences page and check whether your segments have been added.
-
-10) Have your application running for a while. After you have reached 1000 succesfull api calls to your facebook app you can submit it for review and have proper rate limiting.
+[GNU - General Public License v3](https://www.gnu.org/licenses/gpl-3.0.en.html)
