@@ -13,6 +13,7 @@ The plugin is originally developed by [Raymond Muilwijk](https://github.com/rmui
 # Credits
 
 - [Raymond Muilwijk](https://github.com/rmuilwijk)
+- [ReachMedia Ltd.](https://www.reachmedia.hu/)
 
 # License
 
