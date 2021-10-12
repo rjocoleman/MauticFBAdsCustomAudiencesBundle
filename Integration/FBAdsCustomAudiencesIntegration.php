@@ -27,7 +27,7 @@ class FBAdsCustomAudiencesIntegration extends AbstractIntegration
 
   public function getIcon()
   {
-      return 'plugins/MauticFBAdsCustomAudiencesBundle/Assets/img/facebook-ads.webp';
+      return 'plugins/MauticFBAdsCustomAudiencesBundle/Assets/img/custom-audience-icon-78.svg';
   }
 
   /**
