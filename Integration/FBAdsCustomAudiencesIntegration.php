@@ -19,7 +19,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
  */
 
 class FBAdsCustomAudiencesIntegration extends AbstractIntegration
-{
+{ 
+  const VERSION_URL              = 'https://api.github.com/repos/d-code-ltd/MauticFBAdsCustomAudiencesBundle/releases';
   const CHANGELOG_URL            = '';
 
   public function getName()
@@ -159,4 +160,36 @@ class FBAdsCustomAudiencesIntegration extends AbstractIntegration
         }        
     }
 
+    /**
+     * {@inheritdoc}
+     
+     * @return array|false
+     */
+    public function checkForNewVersion(){        
+        $integrationSettings = $this->getIntegrationSettings();
+        $version = $integrationSettings->getPlugin()->getVersion();        
+                
+        $payload = [
+            'per_page' => '1'
+        ];
+        
+        $response = $this->makeRequest(
+            self::VERSION_URL, 
+            $payload, 
+            'GET',
+            [
+                'ignore_event_dispatch' => true,
+            ]
+        );
+      
+        if (!empty($response)){
+          $response = $response[0];
+        }
+
+        if (isset($response['tag_name']) && version_compare($version, $response['tag_name'], '<')){            
+            return $response;
+        } else {
+            return false;
+        }
+    }
 }

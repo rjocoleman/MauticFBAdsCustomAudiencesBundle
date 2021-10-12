@@ -34,6 +34,14 @@ return [
                     'mautic.core.service.flashbag',
                 ],
             ],
+            'mautic.plugin.fbadsaudience.user.subscriber' => [
+                'class'     => \MauticPlugin\MauticFBAdsCustomAudiencesBundle\EventListener\UserSubscriber::class,
+                'arguments' => [
+                    'translator',
+                    'mautic.helper.integration',
+                    'mautic.core.service.flashbag',
+                ],
+            ],
         ],
         'integrations' => [
             'mautic.integration.fbadscustomaudiences' => [
