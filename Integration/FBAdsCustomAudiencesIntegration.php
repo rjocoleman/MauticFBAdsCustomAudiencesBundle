@@ -20,6 +20,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class FBAdsCustomAudiencesIntegration extends AbstractIntegration
 {
+  const CHANGELOG_URL            = '';
+
   public function getName()
   {
     return 'FBAdsCustomAudiences';
@@ -39,6 +41,17 @@ class FBAdsCustomAudiencesIntegration extends AbstractIntegration
   {
     return 'Facebook Ads Custom Audiences Sync';
   }
+
+  /**
+   * Return's description of the the plugin.
+   *
+   * @return string
+   */
+  public function getDescription()
+    {
+        return 'The plugin enables integration with Facebook Ads and allows syncing its <strong><a href="https://en-gb.facebook.com/business/help/341425252616329?locale=en_GB" target="_blank">Custom Audiences</a></strong> with <strong>Mautic segments</strong>.
+                <br /><br />More details: <ul><li><a href="https://docs.google.com/document/d/1xKvPwJnyv8B-dGzerdI8rgnYea2l1tOoLO9Rlw54ABk/edit" target="_blank">en</a></li><li><a href="" target="_blank">hu</a></li></ul><p align="right">version: <strong><a href="'.self::CHANGELOG_URL.'" target="_blank">'.$this->settings->getPlugin()->getVersion().'</a></strong></p>';
+    }
 
   /**
    * Return's authentication method such as oauth2, oauth1a, key, etc.
