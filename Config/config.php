@@ -12,7 +12,7 @@
 return [
     'name'        => 'Advertising',
     'description' => 'Enables integration with Facebook Ads Custom Audiences Syncing your segments.',
-    'version'     => '2.0.0',
+    'version'     => '2.1.0',
     'author'      => 'Trinoco',
     'services' => [
         'events' => [
