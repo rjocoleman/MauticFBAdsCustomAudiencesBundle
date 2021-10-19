@@ -21,7 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class FBAdsCustomAudiencesIntegration extends AbstractIntegration
 { 
   const VERSION_URL              = 'https://api.github.com/repos/d-code-ltd/MauticFBAdsCustomAudiencesBundle/releases';
-  const CHANGELOG_URL            = 'https://www.leadengine.hu/hu/downloads/custom-audiences-facebook-ads-mautic-plugin/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6NTQ0NywidG9nZ2xlIjpmYWxzZX0%3D';
+  const CHANGELOG_URL            = 'https://www.leadengine.hu/en/downloads/custom-audiences-facebook-ads-mautic-plugin/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6NTQ0NywidG9nZ2xlIjpmYWxzZX0%3D';
 
   public function getName()
   {
