@@ -3,7 +3,7 @@
   	"type": "mautic-plugin",
   	"require": {
 	    "mautic/composer-plugin": "^1.0",
-    	"facebook/php-ads-sdk": "7.*"  
+    	"facebook/php-ads-sdk": "12.*"  
 	},
   	"extra": {
 	    "install-directory-name": "MauticFBAdsCustomAudiencesBundle"

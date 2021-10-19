@@ -19,7 +19,10 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
  */
 
 class FBAdsCustomAudiencesIntegration extends AbstractIntegration
-{
+{ 
+  const VERSION_URL              = 'https://api.github.com/repos/d-code-ltd/MauticFBAdsCustomAudiencesBundle/releases';
+  const CHANGELOG_URL            = 'https://www.leadengine.hu/en/downloads/custom-audiences-facebook-ads-mautic-plugin/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6NTQ0NywidG9nZ2xlIjpmYWxzZX0%3D';
+
   public function getName()
   {
     return 'FBAdsCustomAudiences';
@@ -27,7 +30,7 @@ class FBAdsCustomAudiencesIntegration extends AbstractIntegration
 
   public function getIcon()
   {
-      return 'plugins/MauticFBAdsCustomAudiencesBundle/Assets/img/facebook-ads.webp';
+      return 'plugins/MauticFBAdsCustomAudiencesBundle/Assets/img/custom-audience-icon-78.svg';
   }
 
   /**
@@ -39,6 +42,17 @@ class FBAdsCustomAudiencesIntegration extends AbstractIntegration
   {
     return 'Facebook Ads Custom Audiences Sync';
   }
+
+  /**
+   * Return's description of the the plugin.
+   *
+   * @return string
+   */
+  public function getDescription()
+    {
+        return 'The plugin enables integration with Facebook Ads and allows syncing its <strong><a href="https://en-gb.facebook.com/business/help/341425252616329?locale=en_GB" target="_blank">Custom Audiences</a></strong> with <strong>Mautic segments</strong>.
+                <br /><br />More details: <ul><li><a href="https://docs.google.com/document/d/1xKvPwJnyv8B-dGzerdI8rgnYea2l1tOoLO9Rlw54ABk/edit" target="_blank">en</a></li><li><a href="https://docs.google.com/document/d/1HbsD1BlFXX__HZ94eqcZbp5Ye-we2A_K8AFd8-iLn5o/edit" target="_blank">hu</a></li></ul><p align="right">version: <strong><a href="'.self::CHANGELOG_URL.'" target="_blank">'.$this->settings->getPlugin()->getVersion().'</a></strong></p>';
+    }
 
   /**
    * Return's authentication method such as oauth2, oauth1a, key, etc.
@@ -146,4 +160,36 @@ class FBAdsCustomAudiencesIntegration extends AbstractIntegration
         }        
     }
 
+    /**
+     * {@inheritdoc}
+     
+     * @return array|false
+     */
+    public function checkForNewVersion(){        
+        $integrationSettings = $this->getIntegrationSettings();
+        $version = $integrationSettings->getPlugin()->getVersion();        
+                
+        $payload = [
+            'per_page' => '1'
+        ];
+        
+        $response = $this->makeRequest(
+            self::VERSION_URL, 
+            $payload, 
+            'GET',
+            [
+                'ignore_event_dispatch' => true,
+            ]
+        );
+      
+        if (!empty($response)){
+          $response = $response[0];
+        }
+
+        if (isset($response['tag_name']) && version_compare($version, $response['tag_name'], '<')){            
+            return $response;
+        } else {
+            return false;
+        }
+    }
 }
